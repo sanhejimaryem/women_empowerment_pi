@@ -5,16 +5,18 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.6.3</version>
+		<version>2.6.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>tn.esprit.spring.women</groupId>
-	<artifactId>women_empowerment</artifactId>
+	<groupId>com.example</groupId>
+	<artifactId>womenempowerment</artifactId>
 	<version>1.0</version>
-	<name>women_empowerment</name>
+	<name>womenempowerment</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
+					<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
 	</properties>
 	<dependencies>
