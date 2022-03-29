@@ -132,7 +132,7 @@ public class training implements Serializable{
 		this.commentT = commentT;
 	}
 
-	@ManyToMany(mappedBy="training", cascade = CascadeType.ALL)
+	@ManyToMany( cascade = CascadeType.ALL)
 	private Set<Member> membres;
 	
 	@OneToMany(mappedBy = "training",cascade = CascadeType.ALL)

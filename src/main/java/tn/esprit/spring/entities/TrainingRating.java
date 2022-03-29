@@ -28,9 +28,9 @@ public class TrainingRating implements Serializable{
 	
 	@Id
 	@GeneratedValue( strategy = GenerationType.IDENTITY)
-	private int IdRate;
-	private int LikeT ;
-	private int DislikedT;
+	private Integer IdRate;
+	private Integer LikeT ;
+	private Integer DislikedT;
 	
 
 	
@@ -42,9 +42,9 @@ public class TrainingRating implements Serializable{
 
 
 
-	public TrainingRating(int idRate, int likeT, int dislikedT, training training) {
+	public TrainingRating(Integer likeT, Integer dislikedT, training training) {
 		super();
-		IdRate = idRate;
+		
 		LikeT = likeT;
 		DislikedT = dislikedT;
 		this.training = training;

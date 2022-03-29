@@ -42,20 +42,12 @@ public class Member implements Serializable {
 	@OneToMany(mappedBy="member")
     private Set<Claim> claims;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.ALL , mappedBy = "membres")
 	private Set<training> training;
 	
-	@Autowired
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-	@JoinTable(name = "jackpot",
-    joinColumns = {
-            @JoinColumn(name = "id_member", referencedColumnName = "id",
-                    nullable = false, updatable = false)},
-    inverseJoinColumns = {
-            @JoinColumn(name = "id_Event", referencedColumnName = "id",
-                    nullable = false, updatable = false)})
-	
-	
+	@JoinTable(name = "jackpot")
+	private List<Jackpot> jackpots;
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "Member")
 	private List<comments> comments;
 
