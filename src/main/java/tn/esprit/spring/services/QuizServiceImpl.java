@@ -1,10 +1,11 @@
 package tn.esprit.spring.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import tn.esprit.spring.entities.Quiz;
-import tn.esprit.spring.entities.QuizReponse;
 import tn.esprit.spring.repositories.QuizRepRepository;
 import tn.esprit.spring.repositories.QuizRepository;
 import tn.esprit.spring.repositories.TrainingRepository;
@@ -16,7 +17,9 @@ public class QuizServiceImpl  implements QuizService{
 
 	@Autowired
 	private QuizRepository QR ;
+	@Autowired
 	private TrainingRepository Tr;
+	
 	
 	@Autowired
 	private QuizRepRepository qr ;
@@ -26,6 +29,10 @@ public class QuizServiceImpl  implements QuizService{
 		
 		return QR.save(Q);
 	}
+	public List<Quiz> getAllQuiz(){
+		return (List<Quiz>)QR.findAll();
+	}
+
 
 	@Override
 	public Quiz updateQuiz(Quiz Q) {
@@ -77,13 +84,7 @@ public class QuizServiceImpl  implements QuizService{
 	}
 	
 	
-	/**public void saveScore(Quiz result) {
-		Quiz saveResult = new Quiz();
-		saveResult.setUsername(result.getMembre());
-		saveResult.setTotalCorrect(result.getTotalCorrect());
-		QR.save(saveResult);
-	}
-*/
+	
 	
 	
 }

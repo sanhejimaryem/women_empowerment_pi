@@ -1,0 +1,29 @@
+<p>certificate works!</p>
+<button class="btn btn-primary" (click)="onAddc()">Add Certificate</button>
+<div class="body table-responsive container">
+    <table class="table table-bordered">
+    <thead>
+    <tr>
+  
+    <th>Id Certificate</th>
+    <th>Nom</th>
+    <th> prenom</th>
+    <th>Formation</th>
+    <th> Date</th>
+    
+    <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let c of listCert">
+    <th scope="row">{{c.IdCert}}</th>
+    <td>{{c.Nom}}</td>
+    <td>{{c.prenom}}</td>
+    <td>{{c.Formation}}</td>
+    <td>{{c.DateCertif}}</td>
+    <td><button (click)="deleteCertification(u.IdCert)" type="button" class="btn btn-primary" >DELETE</button></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+

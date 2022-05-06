@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import tn.esprit.spring.entities.Quiz;
 import tn.esprit.spring.entities.QuizReponse;
 import tn.esprit.spring.repositories.QuizRepRepository;
 import tn.esprit.spring.repositories.QuizRepository;
@@ -15,7 +16,7 @@ public class QuizReponseServiceImpl implements QuizReponseService{
 	
 	@Autowired
 	private QuizRepRepository Rr ;
-	
+	@Autowired
 	private QuizRepository Qr;
 	
 	
@@ -46,11 +47,7 @@ public class QuizReponseServiceImpl implements QuizReponseService{
 		return Rr.findById(IdQuizRep).get();
 	}
 
-	@Override
-	public List<QuizReponse> getAllTraining() {
-		return (List<QuizReponse>)Rr.findAll();
-	}
-
+	
 	@Override
 	public List<QuizReponse> findQuestionsByQuiz(Integer IdQuiz) {
 		
@@ -64,26 +61,33 @@ public class QuizReponseServiceImpl implements QuizReponseService{
 			return true;
 		}
 
-		return question.equals(IdQuizRep);
+		else return false;
 	}
 
 	@Override
-	public QuizReponse getResult(QuizReponse quest , Integer IdQuiz) {
+	public int getResult(QuizReponse quest , Integer IdQuiz , int IdQuizRep) {
 		
 			
 			int correct = 0;
 			List<QuizReponse> Ques = Rr.findQuestionsByQuiz(IdQuiz);
 			for (QuizReponse q: Ques )
-			if(quest.getChoix() == quest.getReponse()){
+			if(checkIsCorrectAnswer(q, IdQuizRep)==true){
 				
 				correct++;
 			}
 			if (correct <10){
+				System.out.println("you have to work more !");
 				
+			}
+			else if (10 <correct && correct<15){
+				System.out.println("good job! You have to work harder ");
+			}
+			else if (correct>15){
+				System.out.println("excellet! You have succeded ");
 			}
 					
 			
-		return null ;
+		return correct ;
 	}
 	
 
@@ -96,6 +100,7 @@ public class QuizReponseServiceImpl implements QuizReponseService{
 		
 		
 		
+		
 	}
 
 	@Override
@@ -103,5 +108,23 @@ public class QuizReponseServiceImpl implements QuizReponseService{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public List<QuizReponse> getAllRep() {
+		
+		return (List<QuizReponse>)Rr.findAll();
+	}
+
+	@Override
+	public void assignQuizToTraining(Integer IdQuizRep, Integer IdQuiz) {
+		QuizReponse quizR = Rr.findById(IdQuizRep).get();
+		quizR.setQuiz(Qr.findById(IdQuiz).get()); 
+		 
+		Rr.save(quizR);
+		
+		
+	}
+
+	
 	
 }

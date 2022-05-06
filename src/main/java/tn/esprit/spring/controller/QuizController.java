@@ -1,7 +1,10 @@
 package tn.esprit.spring.controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,7 +19,7 @@ import tn.esprit.spring.services.QuizServiceImpl;
 
 
 
-
+@CrossOrigin(origins="http://localhost:4200")
 @RestController
 @RequestMapping("/eve")
 public class QuizController {
@@ -36,6 +39,10 @@ public class QuizController {
 	public Quiz updateQuiz (@RequestBody Quiz Q) {
 	return quizService.updateQuiz(Q);
 	}
+	@GetMapping("/get-Quiz")
+	public List<Quiz> getAllQuiz(){
+		return quizService.getAllQuiz();
+	}
 	
 	@DeleteMapping ("delete-quiz/{IdTraining}")
 	public void deleteQByIdT(@PathVariable Integer IdTraining) {
@@ -43,7 +50,7 @@ public class QuizController {
 		quizService.deleteQByIdT(IdTraining);
 	}
 	
-	@PutMapping("assign-quiz/{IdQuiz}")
+	@PutMapping("assign-quiz/{IdQuiz}/{IdTraining}")
 	public void assignQuizToTraining(@PathVariable Integer IdTraining,@PathVariable Integer IdQuiz) {
 		quizService.assignQuizToTraining(IdTraining, IdQuiz);
 	}

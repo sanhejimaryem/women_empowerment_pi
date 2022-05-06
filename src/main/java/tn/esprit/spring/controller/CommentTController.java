@@ -3,6 +3,7 @@ package tn.esprit.spring.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,13 +15,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 import tn.esprit.spring.entities.CommentTraining;
 import tn.esprit.spring.services.CommentTrainingServiceImpl;
-
+@CrossOrigin(origins="http://localhost:4200")
 @RestController
 @RequestMapping("/eve")
 public class CommentTController {
 	
 	@Autowired
 	CommentTrainingServiceImpl Cs ;
+	
+	
+	@GetMapping("/get-all-cmt")
+public List<CommentTraining> getAllCmt(){
+		
+		return Cs.getAllCmt() ;
+	}
 	
 	
 	@PostMapping("/add-cmt/{idTraining}/{id_member}")
@@ -48,7 +56,7 @@ public class CommentTController {
 		
 	}
 	
-	
+	@PutMapping("/assigncmt/{IdTraining}/{IdCmt}")
 	void assignCmtToTraining (Integer IdTraining ,Integer IdCmt ){
 		Cs.assignCmtToTraining(IdTraining, IdCmt);
 	}

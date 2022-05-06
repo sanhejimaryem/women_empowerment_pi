@@ -1,0 +1,177 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+
+</div>
+<script>
+	$(document).ready(function () {
+
+$('.star').on('click', function () {
+  $(this).toggleClass('star-checked');
+});
+
+$('.ckbox label').on('click', function () {
+  $(this).parents('tr').toggleClass('selected');
+});
+
+$('.btn-filter').on('click', function () {
+  var $target = $(this).data('target');
+  if ($target != 'all') {
+	$('.table tr').css('display', 'none');
+	$('.table tr[data-status="' + $target + '"]').fadeIn('slow');
+  } else {
+	$('.table tr').css('display', 'none').fadeIn('slow');
+  }
+});
+
+});
+</script>
+<!-- Page content -->
+<div class="container">
+	<div class="card text-center">
+		  <div class="card-header">
+		   </div>
+		   <!-- detail training -->
+			<div class="card">
+				<div class="card-header">
+				Trainings
+				</div>
+				<div class="container mt-5">
+					<div class="row">
+					  <div class="col-12">
+						<article class="blog-card">
+						  <div class="blog-card__info">
+							<h5>{{training.domaine}}</h5>
+							<p>
+							  <a href="#" class="icon-link mr-3"><i class="fa fa-pencil-square-o"></i> Tony Jahson</a>
+							  <a href="#" class="icon-link"><i class="fa fa-comments-o"></i> 150</a>
+							</p>
+							<p>{{training.description}}</p>
+							<a href="#" class="btn btn--with-icon"><i class="btn-icon fa fa-long-arrow-right"></i>READ MORE</a>
+						  </div>
+						</article>
+					  </div>
+					</div>
+				  </div>
+				  <section class="detail-page">
+					<div class="container mt-5">
+					</div>
+				</section>
+				
+			</div>
+			<!-- Training quiz -->
+			<button (click)="showqz()" >Pass quiz</button>
+			<div *ngIf="showQuiz">
+				<div class="container">
+					<div class="row">
+				
+						<section class="content">
+							<h1>Quiz Table</h1>
+							<div class="col-md-8 col-md-offset-2">
+								<div class="panel panel-default">
+									<div class="panel-body">
+										<div class="pull-right">
+											<div class="btn-group">
+												<button type="button" class="btn btn-success btn-filter" data-target="pagado">Done</button>
+												<button type="button" class="btn btn-default btn-filter" data-target="all">Todo</button>
+											</div>
+										</div>
+										<div *ngFor ="let Q in listQuiz" class="table-container">
+											<table class="table table-filter">
+												<tbody>
+													<tr data-status="pagado" class="selected">
+														<td>
+															<div class="ckbox">
+																<input type="checkbox" id="checkbox4" checked>
+																<label for="checkbox4"></label>
+															</div>
+														</td>
+														<td>
+															<a href="javascript:;" class="star star-checked">
+																<i class="glyphicon glyphicon-star"></i>
+															</a>
+														</td>
+														<td>
+															<div class="media">
+																<a href="#" class="pull-left">
+																	<img src="https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg" class="media-photo">
+																</a>
+																<div class="media-body">
+																	<span class="media-meta pull-right">Febrero 13, 2016</span>
+																	<h4 class="title">
+																		{{Q.QuizTopic}}
+																		<span class="pull-right pagado">(Pagado)</span>
+																	</h4>
+																	<p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+																</div>
+															</div>
+														</td>
+													</tr>
+													
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>	
+						</section>
+					</div>
+					</div>
+			</div>
+
+			<!-- Training comments -->
+			<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+			<div class="container">
+			<div class="be-comment-block">
+				<h1 class="comments-title">Comments </h1>
+				<div *ngFor="let c in listComment" class="be-comment">
+					<div class="be-img-comment">	
+						<a href="blog-detail-2.html">
+							<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="be-ava-comment">
+						</a>
+					</div>
+					<div class="be-comment-content">
+						
+							<span class="be-comment-name">
+								<a href="blog-detail-2.html">{{c.id_membre}}</a>
+								</span>
+							<span class="be-comment-time">
+								<i class="fa fa-clock-o"></i>
+								{{c.dateCmt}}
+							</span>
+
+						<p class="be-comment-text">
+							{{c.content}}
+						</p>
+					</div>
+				</div>
+				
+				<form class="form-block">
+					<div class="row">
+						<div class="col-xs-12 col-sm-6">
+							<div class="form-group fl_icon">
+								<div class="icon"><i class="fa fa-user"></i></div>
+								<input class="form-input" type="text" placeholder="Your ID" >
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-6 fl_icon">
+							<div class="form-group fl_icon">
+								<div class="icon"><i class="fa fa-envelope-o"></i></div>
+								<input class="form-input" type="text" placeholder="date" [(ngModel)]="commentT.dateCmt">
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-6">									
+							<div class="form-group ">
+								<textarea class="form-input" required="" placeholder="Your text" [(ngModel)]="commentT.content"></textarea>
+							</div>
+						</div>
+						<a type="button" class="btn btn-outline-primary" >submit</a>
+					</div>
+				</form>
+			</div>
+			</div>
+
+</div>
+
+
+
+
+

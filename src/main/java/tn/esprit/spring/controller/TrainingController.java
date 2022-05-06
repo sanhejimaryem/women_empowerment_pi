@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import tn.esprit.spring.entities.Domaine;
 import tn.esprit.spring.entities.training;
 import tn.esprit.spring.services.TrainingServiceImpl;
-
+@CrossOrigin(origins="http://localhost:4200")
 @RestController
 @RequestMapping("/eve")
 public class TrainingController {
@@ -46,16 +47,16 @@ public class TrainingController {
 	}
 	
 	
-	@DeleteMapping("/remove-training")
+	@DeleteMapping("/remove-training/{IdTraining}")
 	@ResponseBody
-	public void  deleteTrainingById(Integer IdTraining) {
+	public void  deleteTrainingById(@PathVariable Integer IdTraining) {
 		trainingService.deleteTrainingById(IdTraining);
 	}
 	
 	
 	@GetMapping("/find-Domaine/{domaine}")
 	@ResponseBody
-	public List<training> findTrainingByDomaine(@PathVariable Domaine domaine) {
+	public List<training> findTrainingByDomaine(@PathVariable("domaine") Domaine domaine) {
 		return trainingService.findTrainingByDomaine(domaine);
 	}
 
@@ -84,10 +85,10 @@ public class TrainingController {
 
 		
 	}
-	
+	@PutMapping("/assigntrainer/{IdTraining}/{id_member}")
 	void assignTrainingToTrainer (@PathVariable Integer IdTraining ,@PathVariable Integer id_member ){
-		/** TrainingRepository.assignTrainingToTrainer(IdTraining,id_member);
-		 * **/
+		trainingService.assignTrainingToTrainer(IdTraining,id_member);
+		
 		 
 	}
 }

@@ -14,13 +14,14 @@ public interface QuizReponseService {
 	void deleteRep (QuizReponse R);
 	void deleteRepById(Integer IdQuizRep);
 	QuizReponse getTraining(Integer IdQuizRep);
-	List<QuizReponse> getAllTraining();
+	public List<QuizReponse> getAllRep();
 	List<QuizReponse> findQuestionsByQuiz(Integer IdQuiz);
 	
 	void assignQuestionToQuiz (Integer IdQuizRep ,Integer IdQuiz );
-	public QuizReponse getResult (QuizReponse quest , Integer IdQuiz );
-
+	
 	Boolean checkIsCorrectAnswer(QuizReponse question, int IdQuizRep);
 	public int countQuestionsInQuiz(Integer IdQuiz);
+	public int getResult(QuizReponse quest , Integer IdQuiz , int IdQuizRep);
+	public void assignQuizToTraining(Integer IdQuizRep, Integer IdQuiz);
 
 }

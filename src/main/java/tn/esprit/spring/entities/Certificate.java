@@ -29,6 +29,54 @@ public class Certificate implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date DateCertif ;
 	
+	public Integer getIdCert() {
+		return IdCert;
+	}
+
+	public void setIdCert(Integer idCert) {
+		IdCert = idCert;
+	}
+
+	public String getNom() {
+		return Nom;
+	}
+
+	public void setNom(String nom) {
+		Nom = nom;
+	}
+
+	public String getPrenom() {
+		return prenom;
+	}
+
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+
+	public String getFormation() {
+		return Formation;
+	}
+
+	public void setFormation(String formation) {
+		Formation = formation;
+	}
+
+	public Date getDateCertif() {
+		return DateCertif;
+	}
+
+	public void setDateCertif(Date dateCertif) {
+		DateCertif = dateCertif;
+	}
+
+	public Quiz getQuiz() {
+		return quiz;
+	}
+
+	public void setQuiz(Quiz quiz) {
+		this.quiz = quiz;
+	}
+
 	@OneToOne
 	private Quiz quiz;
 

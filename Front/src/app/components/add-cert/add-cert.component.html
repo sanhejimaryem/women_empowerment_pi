@@ -1,0 +1,66 @@
+<p>add-cert works!</p>
+
+<div class="body"> 
+    <form class="form-horizontal"> 
+        <div class="row clearfix"> 
+            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label"> 
+                <label for="first_name">Nom</label> 
+            </div> 
+            <div class="col-lg-10 col-md-10 col-sm-8 colxs-7"> 
+                <div class="form-group"> 
+                    <div class="form-line"> 
+                        <input name="Nom" [(ngModel)]="Certificate.Nom" type="text" id="Nom" class="form-control" placeholder="Enter name"> 
+                    </div> 
+                </div> 
+            </div> 
+        </div> 
+        <div class="row clearfix"> 
+            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label"> 
+                <label for="last_name">prenom</label> 
+            </div> 
+            <div class="col-lg-10 col-md-10 col-sm-8 colxs-7"> 
+                <div class="form-group"> 
+                    <div class="form-line"> 
+                        <input name="prenom" [(ngModel)]="Certificate.prenom" type="text" id="prenom" class="form-control" placeholder="Enter last_name"> 
+                    </div> 
+                </div>      
+            </div> 
+      </div> 
+      <div class="row clearfix"> 
+             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label"> 
+                <label for="Dated">Formation </label> 
+            </div> 
+            <div class="col-lg-10 col-md-10 col-sm-8 colxs-7"> 
+                <div class="form-group"> 
+                     <div class="form-line"> 
+    <input name="Formation" [(ngModel)]="Certificate.Formation" type="text" id="Formation" class="form-control" placeholder="Enter Formation name"> 
+    </div> 
+    </div> 
+    </div>
+</div> 
+<div class="row clearfix"> 
+<div class="col-lg-2 col-md-2 col-sm-4 col-xs 
+-5 form-control-label"> 
+<label for="datef">Date </label> 
+</div> 
+<div class="col-lg-10 col-md-10 col-sm-8 col 
+xs-7"> 
+<div class="form-group"> 
+<div class="form-line"> 
+<input name="DateCertif" [(ngModel)]="Certificate.DateCertif" type="DateCertif" id="DateCertif" class="form-control " placeholder="Enter date"> 
+</div> 
+</div> 
+</div> 
+</div> 
+
+<div class="row clearfix"> 
+<div class="col-lg-offset-2 col-md-offset-2 c 
+ol-sm-offset-4 col-xs-offset-5"> 
+<button (click)="addCert()" type="button" class="btn btn-primary m-t-15 waves-effect">Add</button> </div> 
+</div> 
+</form> 
+</div>
+
+
+    
+

@@ -1,0 +1,50 @@
+<!-- <p>quiz works!</p>
+<button class="btn btn-primary" (click)="onAddq()">Add Quiz</button>
+<div *ngFor="let q of listQuiz" >
+    <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{q.IdQuiz}}</h5>
+            <small>Topic: {{q.QuizTopic}}</small>
+          </div>
+          <button (click)="deleteQuiz(u.IdQuiz)" type="submit" class="btn btn-outline-warning">Delete</button>
+         
+        </a>
+      </div>
+    </div>
+     -->
+<!-- 
+     <div class="app-container">
+      <div class="sidebar">
+        <div class="sidebar-header"> -->
+
+
+      <div class="app-content">
+        <div class="app-content-header">
+          <h1 class="app-content-headerText">Quiz</h1>
+          <button class="mode-switch" title="Switch Theme">
+            <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
+              <defs></defs>
+              <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+            </svg>
+          </button>
+          <button class="btn btn-default" (click)="onAddq()" >Add Quiz</button>
+        </div>
+        <div class="row">
+          <div class="col" *ngFor ="let q of listQuiz">
+              <div class="col-4">
+                <a class="card2" href="#">
+                  <h3> {{q.quizTopic}} </h3>
+                  <!-- <p class="small">Card description with lots of great facts and interesting details.</p> -->
+                  
+                  <div class="go-corner" href="#">
+                    <div class="go-arrow">
+                      →
+                    </div>
+                  </div>
+                </a>
+              </div>
+          </div>
+        </div>
+      </div>
+   

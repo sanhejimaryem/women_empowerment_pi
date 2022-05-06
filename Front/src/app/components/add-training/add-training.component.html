@@ -1,0 +1,68 @@
+<div class ="form-container">
+  <form #trainingForm="ngForm" class=" my-2 mx-8">
+    <span class="h2 font-weight-bold mb-0">{{status}} Training</span>
+    <div class="input-group mb-3 form-group w-75">
+      <label class="input-group-text" for="inputGroupSelect01">Domaine</label>
+      <select class="form-select" id="inputGroupSelect01" [(ngModel)]="training.domaine">
+          <option selected>Choose...</option>
+            <option value="tourisme">tourisme</option>
+            <option value="agriculture">agriculture</option>
+            <option value="sciencesHumaines">sciences Humaines</option>
+            <option value="informatique">informatique</option>
+            <option value="art">art</option>
+            <option value="travauxPublics">travaux Publics</option>
+            <option value="marketingeEtManagement">marketinge Et Management</option>
+            <option value="langues">langues</option>
+      </select>
+    </div>
+
+    <div class="form-floating">
+      <input type="dateB" class="form-control" id="floatingName" placeholder="Name" name="name" [(ngModel)]="training.name" #n="ngModel" required>
+      <label for="floatingName"></label>
+    </div>
+            
+    <div class="form-floating">
+      <textarea class="form-control" placeholder="description" id="floatingTextarea2" style="height: 100px" name="description" [(ngModel)]="training.description"  #i="ngModel" required pattern="[a-z]+$"></textarea>
+      <label for="floatingTextarea2"></label>
+    </div>
+        
+        <div  class="alert alert-warning d-flex align-items-center" role="alert" *ngIf="i.invalid && i.touched">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+          </svg>
+          <div *ngIf ="i.errors?.['required']">required field</div>
+        
+        </div>
+       
+          <div class="form-floating mb-3">
+            <input type="dateB" class="form-control" id="floatingInput1" placeholder="Begins on :0000-00-00" name="dateDTr" [(ngModel)]="training.DateDTr" #b="ngModel" required>
+            <label for="floatingInput1"></label>
+          </div>
+      
+        <div  class="alert alert-warning d-flex align-items-center" role="alert" *ngIf="b.invalid && b.touched">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+          </svg>
+          <div *ngIf ="b.errors?.['required']">required field</div>
+        
+        
+      </div>
+      
+          <div class="form-floating mb-3">
+            <input type="dateF" class="form-control" id="floatingInput2" placeholder="Ends on :0000-00-00" name="dateFTr" [(ngModel)]="training.DateFTr" #f="ngModel" required>
+            <label for="floatingInput2">Ends on</label>
+          </div>
+          <div  class="alert alert-warning d-flex align-items-center" role="alert" *ngIf="f.invalid && f.touched">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+              <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+            </svg>
+            <div *ngIf ="f.errors?.['required']">required field</div>
+            <div *ngIf ="f.errors?.['pattern']">please provide a valid text</div>
+          
+          </div>
+        
+        <button (click)="status=='Add' ? addTraining() : updateTraining()" type="submit" class="btn btn-outline-warning">{{status}}</button>
+       
+  </form>
+    
+</div>

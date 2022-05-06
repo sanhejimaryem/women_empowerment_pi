@@ -15,5 +15,6 @@ public interface CommentTrainingService {
 		//delete
 		public void deletecom(int idcmt);
 		void assignCmtToTraining (Integer IdTraining ,Integer Idcmt );
+		List<CommentTraining> getAllCmt();
 		
 }

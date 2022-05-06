@@ -1,0 +1,33 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+
+</div>
+<!-- Page content -->
+<div class="container">
+  <div class="card text-center">
+        <div class="card-header">
+        </div>
+         <p>list</p>
+          
+         <div *ngFor ="let l of listTraining" class="blog-card w-75">
+          <div class="meta">
+            <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
+            <ul class="details">
+              <li class="author"><a href="#">John Doe</a></li>
+              <li class="date">{{l.DateDTr}}</li>
+              
+            </ul>
+          </div>
+          <div class="description">
+            <h1>{{l.domaine}}</h1>
+            <p> {{l.description}}</p>
+            <p class="read-more">
+              <a [routerLink]="['/detail',l.idTraining]" >Read More</a>
+            </p>
+          </div>
+        </div>
+        
+         
+    <router-outlet></router-outlet>
+    
+</div>
+</div>

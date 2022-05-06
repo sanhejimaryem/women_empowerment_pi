@@ -12,6 +12,8 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Getter
@@ -133,15 +135,19 @@ public class training implements Serializable{
 	}
 
 	@ManyToMany( cascade = CascadeType.ALL)
+	@JsonIgnore
 	private Set<Member> membres;
 	
 	@OneToMany(mappedBy = "training",cascade = CascadeType.ALL)
+	@JsonIgnore
 	private List<Quiz> quizList;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "training")
+	@JsonIgnore
 	private Set<TrainingRating> TrainingRating;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "training")
+	@JsonIgnore
 	private Set<CommentTraining> commentT;
 	
 	

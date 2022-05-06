@@ -29,7 +29,7 @@ public class Quiz implements Serializable {
 	
 	private Integer IdQuiz ;
 	private String QuizTopic ;
-	private Integer result ;
+	private String description ;
 	
 	@ManyToOne
 	private training training;
@@ -58,12 +58,12 @@ public class Quiz implements Serializable {
 
 	
 
-	public Integer getResult() {
-		return result;
+	public String getdescription() {
+		return description;
 	}
 
-	public void setResult(Integer result) {
-		this.result = result;
+	public void setdescription(Integer result) {
+		this.description = description;
 	}
 
 	public training getTraining() {
@@ -90,13 +90,13 @@ public class Quiz implements Serializable {
 		this.quizrepList = quizrepList;
 	}
 
-	public Quiz(Integer idQuiz, String quizTopic, String question, Integer result,
+	public Quiz(Integer idQuiz, String quizTopic, String question, String description,
 			training training, Certificate certificate, List<QuizReponse> quizrepList) {
 		super();
 		IdQuiz = idQuiz;
 		QuizTopic = quizTopic;
 		
-		this.result = result;
+		this.description = description;
 		this.training = training;
 		this.certificate = certificate;
 		this.quizrepList = quizrepList;

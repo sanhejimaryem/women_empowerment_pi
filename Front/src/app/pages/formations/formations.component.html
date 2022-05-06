@@ -1,0 +1,33 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+
+  </div>
+  <!-- Page content -->
+  <div class="container mt--7">
+    <div class="card text-center">
+      <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+          <li class="nav-item">
+            <button class="nav-link " (click)="showTr()">Training</button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" (click)="showQ()">Quiz</button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link"(click)="showC()">Certifications</button>
+          </li>
+        </ul>
+        
+      </div>
+      <app-training *ngIf="showTraining" (emitState)="sendState()"></app-training>
+      <app-quiz *ngIf="showQuiz" (emitStateq)="sendStateq()"></app-quiz>
+      <app-certificate *ngIf ="showCert" (emitStateC)="sendStateC()"></app-certificate>
+      <app-quizrep *ngIf="showQuiz" (emitStateR)="sendStateR()"></app-quizrep>
+      <app-add-quiz *ngIf="showAddQuiz"></app-add-quiz>
+      <app-add-cert *ngIf="showAddCert"></app-add-cert>
+      <app-add-quizrep *ngIf="showAddQuestion"></app-add-quizrep>
+      
+    </div>
+    
+    
+  </div>
+  

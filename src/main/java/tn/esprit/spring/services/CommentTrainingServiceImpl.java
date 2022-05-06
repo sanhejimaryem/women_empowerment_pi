@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import tn.esprit.spring.entities.CommentTraining;
 import tn.esprit.spring.entities.Member;
+import tn.esprit.spring.entities.Quiz;
 import tn.esprit.spring.entities.training;
 import tn.esprit.spring.repositories.CommentTRepository;
 import tn.esprit.spring.repositories.MembreRepository;
@@ -28,7 +29,9 @@ public class CommentTrainingServiceImpl implements CommentTrainingService {
 	
 	
 	
-	
+	public List<CommentTraining> getAllCmt(){
+		return (List<CommentTraining>)CmtR.findAll();
+	}
 	
 	
 	@Override
